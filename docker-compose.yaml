@@ -1,0 +1,16 @@
+services:
+  ghost:
+    image: ghost:5-alpine
+    container_name: notes-ghost
+    restart: always
+    ports:
+      - 8632:2368
+    environment:
+      database__client: sqlite3
+      database__connection__filename: /var/lib/ghost/content/data/ghost.db
+      url: http://notes.alfazen.org
+    volumes:
+      - ghost:/var/lib/ghost/content
+
+volumes:
+  ghost:
