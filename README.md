@@ -81,14 +81,12 @@ or type: http://localhost:8632/ghost for the admin page.
 As simple as below:
 ```shell
 # Take down the 2 containers
-docker ps  ## Note down the container ID
-docker stop d5e649827cff 863668a38b16
-docker rm d5e649827cff 863668a38b16
+docker step $(docker ps -ah)
+docker rm $(docker ps -ah)
 docker ps  ## there is no such 2 containers any more
 
 # Remove the images
-docker images  ## list out the images and note down the 2 Image IDs
-docker image rm 2d3a7de762e6 d58ac93387f6
+docker image rm $(docker images -ah)
 docker images  ## there is no such 2 images any more
 ```
 
