@@ -20,7 +20,7 @@ services:
     image: ghost:5-alpine
     restart: always
     ports:
-      - 8632:2368
+      - 2368:2368
     environment:
       # see https://ghost.org/docs/config/#configuration-options
       database__client: mysql
@@ -29,7 +29,7 @@ services:
       database__connection__password: Kanada2024!pass
       database__connection__database: technotes
       # this url value is just an example, and is likely wrong for your environment!
-      url: http://localhost:8632
+      url: http://localhost:2368
       # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production
       # (so development mode needs to be explicitly specified if desired)
       # NODE_ENV: development
@@ -57,11 +57,11 @@ services:
     container_name: notes-ghost
     restart: always
     ports:
-      - 8632:2368
+      - 2368:2368
     environment:
       database__client: sqlite3
       database__connection__filename: /var/lib/ghost/content/data/ghost.db
-      url: http://notes.alfazen.org
+      url: http://localhost:2368
     volumes:
       - ghost:/var/lib/ghost/content
 
@@ -81,12 +81,12 @@ or type: http://localhost:8632/ghost for the admin page.
 As simple as below:
 ```shell
 # Take down the 2 containers
-docker step $(docker ps -ah)
-docker rm $(docker ps -ah)
+docker stop $(docker ps -q)
+docker rm $(docker ps -q)
 docker ps  ## there is no such 2 containers any more
 
 # Remove the images
-docker image rm $(docker images -ah)
+docker image rm $(docker images -q)
 docker images  ## there is no such 2 images any more
 ```
 
