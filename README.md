@@ -17,7 +17,7 @@ The contents of the docker-compose.yaml shall be like below:
 ```textfile
 services:
   ghost:
-    image: ghost:5-alpine
+    image: ghost:latest
     restart: always
     ports:
       - 2368:2368
@@ -53,7 +53,7 @@ or using sqlite3 database as below
 ```textfile
 services:
   ghost:
-    image: ghost:5-alpine
+    image: ghost:latest
     container_name: notes-ghost
     restart: always
     ports:
