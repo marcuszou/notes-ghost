@@ -82,7 +82,7 @@ As simple as below:
 ```shell
 # Take down the 2 containers
 docker stop $(docker ps -q)
-docker rm $(docker ps -q)
+docker rm $(docker ps -aq)
 docker ps  ## there is no such 2 containers any more
 
 # Remove the images
