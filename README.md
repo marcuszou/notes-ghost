@@ -74,8 +74,8 @@ then running up the docker:
 sudo docker-compose up -d
 ```
 finally open a browser,
-and type: http://localhost:8632 for the website;
-or type: http://localhost:8632/ghost for the admin page.
+and type: http://localhost:2368 for the website;
+or type: http://localhost:2368/ghost for the admin page.
 
 ## Pullover the webapp
 As simple as below:
